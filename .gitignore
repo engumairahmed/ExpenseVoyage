@@ -7,8 +7,9 @@
 .env
 
 # appsettings
-appsettings.json
-appsettings.Development.json
+ExpenseVoyage/appsettings.json
+ExpenseVoyage/appsettings.Development.json
+ExpenseVoyage/bin/debug/net6.0/appsettings.Development.json
 
 
 # User-specific files
