@@ -11254,19 +11254,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\Usman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASP\\ExpenseVoyage\\ExpenseVoyage\\ExpenseVoyage.csproj",
+      "projectUniqueName": "C:\\Users\\Usman\\Desktop\\ExpenseVoyage\\ExpenseVoyage\\ExpenseVoyage.csproj",
       "projectName": "ExpenseVoyage",
-      "projectPath": "D:\\ASP\\ExpenseVoyage\\ExpenseVoyage\\ExpenseVoyage.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\ASP\\ExpenseVoyage\\ExpenseVoyage\\obj\\",
+      "projectPath": "C:\\Users\\Usman\\Desktop\\ExpenseVoyage\\ExpenseVoyage\\ExpenseVoyage.csproj",
+      "packagesPath": "C:\\Users\\Usman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usman\\Desktop\\ExpenseVoyage\\ExpenseVoyage\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Usman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11348,7 +11348,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }

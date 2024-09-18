@@ -17,6 +17,8 @@ namespace ExpenseVoyage.Models
         [ForeignKey("IdentityUser")]
         public string IUserId { get; set; }
 
+        public ICollection<Trips>  Trips { get; set; }
+        public ICollection<Expenses> exp { get; set; }
         public IdentityUser IdentityUser { get; set; }
 
     }

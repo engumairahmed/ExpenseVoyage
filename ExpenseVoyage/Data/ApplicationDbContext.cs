@@ -13,7 +13,8 @@ namespace ExpenseVoyage.Data
         {
         }
         public DbSet<UserProfile> UserProfiles { get; set; }
-
+        public DbSet<Trips> Trips { get; set; }
+        public DbSet<Expenses> Expenses { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

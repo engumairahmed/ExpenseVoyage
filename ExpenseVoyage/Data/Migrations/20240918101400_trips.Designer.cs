@@ -4,6 +4,7 @@ using ExpenseVoyage.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseVoyage.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240918101400_trips")]
+    partial class trips
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,42 +23,6 @@ namespace ExpenseVoyage.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("ExpenseVoyage.Models.Expenses", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Category")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("expanse_Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("notes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("trip_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("user_id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("trip_id");
-
-                    b.HasIndex("user_id");
-
-                    b.ToTable("Expenses");
-                });
 
             modelBuilder.Entity("ExpenseVoyage.Models.Trips", b =>
                 {
@@ -336,25 +302,6 @@ namespace ExpenseVoyage.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ExpenseVoyage.Models.Expenses", b =>
-                {
-                    b.HasOne("ExpenseVoyage.Models.Trips", "trip")
-                        .WithMany("exp")
-                        .HasForeignKey("trip_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ExpenseVoyage.Models.UserProfile", "profile")
-                        .WithMany("exp")
-                        .HasForeignKey("user_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("profile");
-
-                    b.Navigation("trip");
-                });
-
             modelBuilder.Entity("ExpenseVoyage.Models.Trips", b =>
                 {
                     b.HasOne("ExpenseVoyage.Models.UserProfile", "Profile")
@@ -428,16 +375,9 @@ namespace ExpenseVoyage.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ExpenseVoyage.Models.Trips", b =>
-                {
-                    b.Navigation("exp");
-                });
-
             modelBuilder.Entity("ExpenseVoyage.Models.UserProfile", b =>
                 {
                     b.Navigation("Trips");
-
-                    b.Navigation("exp");
                 });
 #pragma warning restore 612, 618
         }
