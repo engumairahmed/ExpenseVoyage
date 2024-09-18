@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpenseVoyage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19e920e3b225d203cd4e7c413f8cf2a488a3b260")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+905c82a896cee6e36adbb73570d192f3967606a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpenseVoyage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpenseVoyage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

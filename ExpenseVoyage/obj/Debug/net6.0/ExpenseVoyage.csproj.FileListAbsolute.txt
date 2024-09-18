@@ -850,3 +850,5 @@ E:\ExpenseVoyage\ExpenseVoyage\obj\Debug\net6.0\refint\ExpenseVoyage.dll
 E:\ExpenseVoyage\ExpenseVoyage\obj\Debug\net6.0\ExpenseVoyage.pdb
 E:\ExpenseVoyage\ExpenseVoyage\obj\Debug\net6.0\ExpenseVoyage.genruntimeconfig.cache
 E:\ExpenseVoyage\ExpenseVoyage\obj\Debug\net6.0\ref\ExpenseVoyage.dll
+E:\ExpenseVoyage\ExpenseVoyage\bin\Debug\net6.0\appsettings.Development.json
+E:\ExpenseVoyage\ExpenseVoyage\bin\Debug\net6.0\appsettings.json
