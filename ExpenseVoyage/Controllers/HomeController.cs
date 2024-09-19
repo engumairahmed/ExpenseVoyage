@@ -1,6 +1,7 @@
 ﻿using ExpenseVoyage.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using ExpenseVoyage.Areas.Identity.Pages.Account;
 
 namespace ExpenseVoyage.Controllers
 {
