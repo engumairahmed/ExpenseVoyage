@@ -6545,7 +6545,8 @@ ol.wp-block-rss {
 }
 
 .about-logo {
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    background-color:;
 }
 
 .th-widget-about .about-logo {
@@ -7313,7 +7314,7 @@ ol.wp-block-rss {
     width: 19%;
     height: 92px;
     z-index: -1;
-    background-color: var(--theme-color)
+    background-color: var(--theme-color);
 }
 
 @media (min-width: 1930px) {
@@ -7435,6 +7436,7 @@ ol.wp-block-rss {
 }
 
 .header-layout3 .header-logo {
+    background-color:var(--title-color) !important;
     padding: 0 70px
 }
 
@@ -16831,7 +16833,7 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 .brand-area .th-container {
-    --main-container: 1648px
+    --main-container: 1648px;
 }
 
 .brand-box {
@@ -22283,4 +22285,10 @@ span.select2-selection.select2-selection--single:focus {
     position: relative;
     margin: -35px 0;
     z-index: 8
+}
+.main-menu li a {
+    color: white !important;
+}
+.sub-menu li a {
+    color: black !important;
 }
