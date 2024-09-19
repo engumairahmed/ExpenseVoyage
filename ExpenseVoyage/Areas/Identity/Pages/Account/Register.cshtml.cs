@@ -20,6 +20,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using ExpenseVoyage.Models;
+using Microsoft.EntityFrameworkCore;
+using ExpenseVoyage.Data;
 
 namespace ExpenseVoyage.Areas.Identity.Pages.Account
 {
@@ -31,13 +34,16 @@ namespace ExpenseVoyage.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _context;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +51,7 @@ namespace ExpenseVoyage.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -72,6 +79,14 @@ namespace ExpenseVoyage.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            /// <summary>
+            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+            ///     directly from your code. This API may change or be removed in future releases.
+            /// </summary>
+            [Required]
+            [StringLength(20,MinimumLength =3)]
+            [Display(Name = "Name")]
+            public string Name { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -122,6 +137,13 @@ namespace ExpenseVoyage.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    var userProfile = new UserProfile
+                    {
+                        Name = Input.Name,
+                        IUserId=user.Id
+                    };
+                    _context.UserProfiles.Add(userProfile);
+                    await _context.SaveChangesAsync();  
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
