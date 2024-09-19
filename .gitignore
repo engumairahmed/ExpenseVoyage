@@ -14,6 +14,8 @@ ExpenseVoyage/bin/debug/net6.0/appsettings.Development.json
 # development folders
 bin/
 obj/
+ExpenseVoyage/bin
+ExpenseVoyage/obj 
 
 # User-specific files
 *.rsuser
