@@ -22292,3 +22292,6 @@ span.select2-selection.select2-selection--single:focus {
 .sub-menu li a {
     color: black !important;
 }
+.menu-item-has-children{
+    color:white;
+}
