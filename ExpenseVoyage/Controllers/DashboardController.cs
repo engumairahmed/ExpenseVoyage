@@ -8,5 +8,19 @@ namespace ExpenseVoyage.Controllers
         {
             return View();
         }
-    }
+	     public IActionResult Table()
+        {
+            return View();
+        }
+
+        public IActionResult Form()
+        {
+            return View();
+        }
+        public IActionResult Profile()
+        {
+            return View();
+        }
+
+	}
 }
