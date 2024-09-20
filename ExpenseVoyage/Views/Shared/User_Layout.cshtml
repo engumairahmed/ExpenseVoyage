@@ -176,8 +176,8 @@
                     <li class="menu-item-has-children">
                         <a href="#">Trip Management</a>
                         <ul class="sub-menu">
-                            <li><a href="service.html">Create Trip</a></li>
-                            <li><a href="service-details.html">View Trip</a></li>
+                            <li><a asp-action="Trip_Create_Trip" asp-controller="User">Create Trip</a></li>
+                            <li><a asp-action="Trip_View_Trip" asp-controller="User">View Trip</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
@@ -282,11 +282,6 @@
                             </nav><button type="button" class="th-menu-toggle d-block d-xl-none">
                                 <i class="far fa-bars"></i>
                             </button>
-                        </div>
-                        <div class="col-auto d-none d-xl-block">
-                            <div class="header-button">
-                                <a href="contact.html" class="th-btn style3 th-icon">Book Now</a>
-                            </div>
                         </div>
                     </div>
                 </div>

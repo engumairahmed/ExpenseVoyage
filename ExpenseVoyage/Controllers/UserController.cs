@@ -1,9 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ExpenseVoyage.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ExpenseVoyage.Controllers
 {
     public class UserController : Controller
     {
+        ApplicationDbContext _context;
+        public UserController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
