@@ -22286,12 +22286,5 @@ span.select2-selection.select2-selection--single:focus {
     margin: -35px 0;
     z-index: 8
 }
-.main-menu li a {
-    color: white !important;
-}
-.sub-menu li a {
-    color: black !important;
-}
-.menu-item-has-children{
-    color:white;
-}
+
+
