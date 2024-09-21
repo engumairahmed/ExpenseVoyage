@@ -4,20 +4,26 @@
     ViewData["Title"] = "Resend email confirmation";
 }
 
-<h1>@ViewData["Title"]</h1>
-<h2>Enter your email.</h2>
+<h1 class="justify-content-center">@ViewData["Resend email confirmation"]</h1>
+
 <hr />
-<div class="row">
+<div class="d-flex justify-content-center mt-20">
     <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-floating">
-                <input asp-for="Input.Email" class="form-control" aria-required="true" />
-                <label asp-for="Input.Email" class="form-label"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Resend</button>
-        </form>
+        <section>
+            <form method="post">
+                <h2>Resend email confirmation</h2>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-floating mt-2">
+                    <input asp-for="Input.Email" class="form-control" placeholder=" Enter Your Email" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <div class="mt-2">
+                        <button type="submit" class="w-75 th-btn style3 mt-2">Resend</button>
+                    </div>
+                </div>
+            </form>
+        </section>
     </div>
 </div>
 

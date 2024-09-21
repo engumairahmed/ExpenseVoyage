@@ -29,6 +29,17 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <button id="registerSubmit" type="submit" class="w-100 th-btn style3 mt-2 justify-content-center">Register</button>
+            <div class="mt-4">
+                <p>
+                    <a id="login" asp-page="./login">Login Here</a>
+                </p>
+                <p>
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                </p>
+                <p>
+                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                </p>
+            </div>
         </form>
     </div>
 </div>
