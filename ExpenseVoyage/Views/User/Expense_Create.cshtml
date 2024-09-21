@@ -3,6 +3,9 @@
     var trip = (List<Trips>)TempData["trips"];
     var category = (List<Category>)TempData["category"];
 }
+@{
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
 <div class="breadcumb-wrapper" data-bg-src="@Url.Content("~/asset/img/normal/breadcumb-bg.jpg")">
     <div class="container">
         <div class="breadcumb-content">

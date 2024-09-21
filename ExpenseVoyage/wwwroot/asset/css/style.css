@@ -22272,6 +22272,9 @@ span.select2-selection.select2-selection--single:focus {
     }
 }
 
+.main-menu li{
+    color: black !important;
+}
 .space-extra3 {
     position: relative;
     margin: -35px 0;

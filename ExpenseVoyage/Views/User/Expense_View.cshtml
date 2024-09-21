@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Your Trips</h2>
+                <h2>Your Expense</h2>
                 <table class="table">
                     <thead>
                         <tr>
@@ -44,7 +44,6 @@
                                     <td>@trip.expanse_Date.ToString("d")</td>
                                     <td>@trip.notes</td>
                                     <td>
-                                        <a asp-action="Edit_Expense" asp-route-id="@trip.Id" class="btn btn-primary">Edit</a>
                                         <a asp-action="Delete_Expense" asp-route-id="@trip.Id" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

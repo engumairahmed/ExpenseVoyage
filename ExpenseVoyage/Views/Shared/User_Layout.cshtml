@@ -248,19 +248,18 @@
                                     <li class="menu-item-has-children">
                                         <a href="#">Trip Management</a>
                                         <ul class="sub-menu">
-                                            <li><a href="service.html">Create Trip</a></li>
-                                            <li><a href="service-details.html">View Trip</a></li>
+                                            <li><a href="@Url.Action("Trip_Create_Trip", "User")">Create Trip</a></li>
+                                            <li><a href="@Url.Action("Trip_View_Trip", "User")">View Trip</a></li>
                                         </ul>
                                     </li>
                                     <li class="menu-item-has-children">
                                         <a href="#">Expense Tracking</a>
                                         <ul class="sub-menu">
-                                            <li><a href="activities.html">Create New</a></li>
-                                            <li><a href="activities-details.html">View</a></li>
+                                            <li><a href="@Url.Action("Expense_Create", "User")">Create New</a></li>
+                                            <li><a href="@Url.Action("Expense_View", "User")">View</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="">Budget Management</a></li>
-                                    <li><a href="">Upcoming Trip</a></li>
+                                    <li><a href="@Url.Action("Upcoming_Trip", "User")">Upcoming Trip</a></li>
 
                                     <li><a href="@Url.Action("Contact", "User")">Contact us</a></li>
                                 </ul>                                
