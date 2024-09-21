@@ -54,9 +54,6 @@ namespace ExpenseVoyage.Areas.Identity.Pages.Account
             _context = context;
         }
 
-        public RegisterModel()
-        {
-        }
 
 
         /// <summary>

@@ -22,13 +22,14 @@ namespace ExpenseVoyage.Controllers
 
         public IActionResult Index()
         {
-            var model = new AuthViewModel
-            {
-                Login = new LoginModel(),
-                Register = new RegisterModel()
-            };
-            return View(model);
+            return View();
         }
+        //[HttpPost]
+        //public IActionResult Index(AuthViewModel model)
+        //{
+        //    var md = model;
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
