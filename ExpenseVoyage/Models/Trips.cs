@@ -9,7 +9,8 @@ namespace ExpenseVoyage.Models
         public DateTime start_Date { get; set; }
         public DateTime end_Date { get; set; }
         public string Destination { get; set; }
-        public string Budget { get; set; }
+        public int Remaining_Budget { get; set; }
+        public int Budget { get; set; }
         [ForeignKey("Profile")]
         public int user_id { get; set; }
         public ICollection<Expenses> exp { get; set; }

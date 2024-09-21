@@ -4,6 +4,7 @@ using ExpenseVoyage.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseVoyage.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240920051552_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,12 @@ namespace ExpenseVoyage.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("categories");
                 });
@@ -50,7 +57,7 @@ namespace ExpenseVoyage.Data.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("category_id")
+                    b.Property<int>("Category")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("expanse_Date")
@@ -68,8 +75,6 @@ namespace ExpenseVoyage.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("category_id");
-
                     b.HasIndex("trip_id");
 
                     b.HasIndex("user_id");
@@ -85,8 +90,9 @@ namespace ExpenseVoyage.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<int>("Budget")
-                        .HasColumnType("int");
+                    b.Property<string>("Budget")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Destination")
                         .IsRequired()
@@ -350,14 +356,19 @@ namespace ExpenseVoyage.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ExpenseVoyage.Models.Expenses", b =>
+            modelBuilder.Entity("ExpenseVoyage.Models.Category", b =>
                 {
-                    b.HasOne("ExpenseVoyage.Models.Category", "category")
+                    b.HasOne("ExpenseVoyage.Models.UserProfile", "Profile")
                         .WithMany()
-                        .HasForeignKey("category_id")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("ExpenseVoyage.Models.Expenses", b =>
+                {
                     b.HasOne("ExpenseVoyage.Models.Trips", "trip")
                         .WithMany("exp")
                         .HasForeignKey("trip_id")
@@ -369,8 +380,6 @@ namespace ExpenseVoyage.Data.Migrations
                         .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("category");
 
                     b.Navigation("profile");
 

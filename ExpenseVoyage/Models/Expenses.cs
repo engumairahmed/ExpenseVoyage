@@ -10,11 +10,13 @@ namespace ExpenseVoyage.Models
         [ForeignKey("trip")]
         public int trip_id { get; set; }
         public int Amount { get; set; }
-        public int Category { get; set; }
+        [ForeignKey("category")]
+        public int category_id { get; set; }
         public DateTime expanse_Date { get; set; }
         public string notes { get; set; }
 
         public UserProfile profile { get; set; }
         public Trips trip { get; set; }
+        public Category category { get; set; }
     }
 }
