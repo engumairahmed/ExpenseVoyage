@@ -8,6 +8,7 @@ namespace ExpenseVoyage.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            // Drop foreign key and index related to UserId
             migrationBuilder.DropForeignKey(
                 name: "FK_categories_UserProfiles_UserId",
                 table: "categories");
@@ -16,13 +17,26 @@ namespace ExpenseVoyage.Data.Migrations
                 name: "IX_categories_UserId",
                 table: "categories");
 
+            // Drop the UserId column
             migrationBuilder.DropColumn(
                 name: "UserId",
                 table: "categories");
+
+            // Seed data for categories
+            migrationBuilder.InsertData(
+                table: "categories",
+                columns: new[] { "Id", "CategoryName" },
+                values: new object[,]
+                {
+                    { 1, "Travel" },
+                    { 2, "Food" },
+                    { 3, "Accommodation" }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            // Re-add UserId column
             migrationBuilder.AddColumn<int>(
                 name: "UserId",
                 table: "categories",
