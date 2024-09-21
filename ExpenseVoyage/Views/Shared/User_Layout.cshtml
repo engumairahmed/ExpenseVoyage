@@ -287,6 +287,15 @@
             </div>
         </div>
     </header>
+    @if (Context.Request.Cookies.ContainsKey("error-msg"))
+    {
+        <div id="cookieMessage" class="cookie-banner">
+            @Context.Request.Cookies["error-msg"]
+        </div>
+    }
+
+
+    
 
 
 
@@ -487,7 +496,7 @@
         </div>
     </div>
 
-
+   
     <script src="~/asset/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="~/asset/js/swiper-bundle.min.js"></script>
     <script src="~/asset/js/bootstrap.min.js"></script>

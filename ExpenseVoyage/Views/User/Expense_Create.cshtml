@@ -1,5 +1,85 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ExpenseVoyage.Models.Expenses
 @{
+    var trip = (List<Trips>)TempData["trips"];
+    var category = (List<Category>)TempData["category"];
+}
+<div class="breadcumb-wrapper" data-bg-src="@Url.Content("~/asset/img/normal/breadcumb-bg.jpg")">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Expense Logging</h1>
+            <ul class="breadcumb-menu">
+                <li><a asp-action="Index">Home</a></li>
+                <li>Log Expense</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@if (Context.Request.Cookies.ContainsKey("error-msg"))
+{
+    <div id="cookieMessage" class="cookie-banner bg-danger text-white">
+        @Context.Request.Cookies["error-msg"]
+    </div>
+}
+<script>
+    setTimeout(function () {
+        var cookieMessage = document.getElementById("cookieMessage");
+        if (cookieMessage) {
+            cookieMessage.style.display = "none";
+        }
+    }, 5000);
+</script>
+<div class="space-extra2-top space-extra2-bottom">
+    <div class="container">
+        <div class="row flex-row-reverse justify-content-center align-items-center">
+            <div class="col-lg-6">
+                <form asp-action="Expense_Create" asp-controller="User" method="post" class="contact-form style2">
+                    @Html.AntiForgeryToken()  @* Ensure CSRF protection *@
+                    <h3 class="sec-title mb-30 text-capitalize">Log an Expense</h3>
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <input type="number" class="form-control" asp-for="Amount" placeholder="Amount" required>
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-group">
+                            <select class="form-control" asp-for="category_id" required>
+                                <option value="" disabled>Select Category</option>
+                                @{
+                                    foreach (var d in category)
+                                    {
+                                        <option value="@d.Id">@d.CategoryName</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="category_id" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-group">
+                            <select class="form-control" asp-for="trip_id" required>
+                                <option value="" disabled>Select Budget</option>
+                                @{
+                                    foreach (var d in trip)
+                                    {
+                                        <option value="@d.id">Name: @d.trip_name -- Budget: @d.Budget  -- Destination: @d.Destination</option>
+                                    }
+                                }
+
+                            </select>
+                            <span asp-validation-for="trip_id" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 form-group">
+                            <textarea class="form-control" asp-for="notes" placeholder="Notes" rows="3"></textarea>
+                            <span asp-validation-for="notes" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-btn col-12 mt-24">
+                            <input type="submit" value="Submit" class="th-btn style3">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

@@ -1,11 +1,13 @@
 ﻿@model ExpenseVoyage.Models.Trips
+
 @{
     Layout = "~/Views/Shared/User_Layout.cshtml";
 }
+
 <div class="breadcumb-wrapper" data-bg-src="@Url.Content("~/asset/img/normal/breadcumb-bg.jpg")">
     <div class="container">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Trip Booking</h1>
+            <h1 class="breadcumb-title">Edit Trip</h1>
             <ul class="breadcumb-menu">
                 <li><a asp-action="Index">Home</a></li>
                 <li>Contact Us</li>
@@ -18,10 +20,12 @@
     <div class="container">
         <div class="row flex-row-reverse justify-content-center align-items-center">
             <div class="col-lg-6">
-                <form asp-action="Trip_Create_Trip" asp-controller="User" method="post" class="contact-form style2">
+                <form asp-action="Trip_Update_Trip" asp-controller="User" method="post" class="contact-form style2">
                     @Html.AntiForgeryToken()  @* Ensure CSRF protection *@
-                    <h3 class="sec-title mb-30 text-capitalize">Book a Tour</h3>
+                    <h3 class="sec-title mb-30 text-capitalize">Edit Trip</h3>
                     <div class="row">
+                        <input type="hidden" asp-for="id" /> @* Include the trip ID for updates *@
+
                         <div class="col-12 form-group">
                             <input type="text" class="form-control" asp-for="trip_name" placeholder="Trip Name" required>
                             <span asp-validation-for="trip_name" class="text-danger"></span>
@@ -39,12 +43,12 @@
                             <span asp-validation-for="Destination" class="text-danger"></span>
                         </div>
                         <div class="col-12 form-group">
-                            <input type="text" class="form-control" asp-for="Remaining_Budget" placeholder="Budget" required>
-                            <span asp-validation-for="Remaining_Budget" class="text-danger"></span>
+                            <input type="text" class="form-control" asp-for="Budget" placeholder="Budget" required>
+                            <span asp-validation-for="Budget" class="text-danger"></span>
                         </div>
 
                         <div class="form-btn col-12 mt-24">
-                            <input type="submit" value="Submit" class="th-btn style3">
+                            <input type="submit" value="Update" class="th-btn style3">
                         </div>
                     </div>
                 </form>
