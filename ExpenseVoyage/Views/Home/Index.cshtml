@@ -3,7 +3,18 @@
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/Guest_Layout.cshtml";
 }
-
+<div id="preloader" class="preloader">
+    <div class="preloader-inner"><img src="@Url.Content("~/asset/img/logo2.jpg")" alt="Tourm"></div>
+    <div id="loader" class="th-preloader">
+        <div class="animation-preloader">
+            <div class="txt-loading">
+                <span preloader-text="T" class="characters">T </span><span preloader-text="O"
+                                                                           class="characters">O </span><span preloader-text="U" class="characters">U </span><span preloader-text="R" class="characters">R </span><span preloader-text="M"
+                                                                                                                                                                                                                       class="characters">M</span>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="hero-2" id="hero">
     <div class="hero2-overlay" data-bg-src="@Url.Content("~/asset/img/bg/line-pattern.png")"></div>
     <div class="swiper hero-slider-2" id="heroSlide2">

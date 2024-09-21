@@ -1,12 +1,14 @@
 ﻿using ExpenseVoyage.Data;
 using ExpenseVoyage.Data.Migrations;
 using ExpenseVoyage.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseVoyage.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         ApplicationDbContext _context;

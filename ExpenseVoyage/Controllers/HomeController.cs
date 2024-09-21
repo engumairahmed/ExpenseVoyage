@@ -5,9 +5,11 @@ using ExpenseVoyage.Areas.Identity.Pages.Account;
 using ExpenseVoyage.Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ExpenseVoyage.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -22,15 +24,13 @@ namespace ExpenseVoyage.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "User"); // Redirect authenticated users to UserController
+            }
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Index(AuthViewModel model)
-        //{
-        //    var md = model;
-        //    return View();
-        //}
-
+       
         public IActionResult Privacy()
         {
             return View();
