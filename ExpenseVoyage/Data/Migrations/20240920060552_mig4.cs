@@ -30,7 +30,9 @@ namespace ExpenseVoyage.Data.Migrations
                 {
                     { 1, "Travel" },
                     { 2, "Food" },
-                    { 3, "Accommodation" }
+                    { 3, "Accommodation" },
+                    {4, "Gifts" },
+                    {5, "Clothing" }
                 });
         }
 

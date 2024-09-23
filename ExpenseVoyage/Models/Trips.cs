@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpenseVoyage.Models
 {
@@ -9,6 +10,8 @@ namespace ExpenseVoyage.Models
         public DateTime start_Date { get; set; }
         public DateTime end_Date { get; set; }
         public string Destination { get; set; }
+        [Required(ErrorMessage = "Budget is required")]
+        [Range(1, int.MaxValue, ErrorMessage = "Budget must be a positive number")]
         public int Remaining_Budget { get; set; }
         public int Budget { get; set; }
         [ForeignKey("Profile")]

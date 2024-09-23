@@ -1,6 +1,7 @@
 ﻿using ExpenseVoyage.Data;
 using ExpenseVoyage.Data.Migrations;
 using ExpenseVoyage.Models;
+using ExpenseVoyage.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -58,9 +59,25 @@ namespace ExpenseVoyage.Controllers
         public IActionResult Trip_View_Trip()
         {
             var user_id = GetUserId();
-            var data = _context.Trips.Where(x => x.user_id == user_id.Id);
+            var data = _context.Trips
+                .Where(x => x.user_id == user_id.Id)
+                .Select(trip => new TripViewModel
+                {
+                    Trip = trip,
+                    Expenses = trip.exp.Select(exp => new ExpenseViewModel
+                    {
+                        Id = exp.Id,
+                        Amount = exp.Amount,
+                        ExpanseDate = exp.expanse_Date,
+                        Notes = exp.notes,
+                        CategoryName = exp.category.CategoryName // Ensure your Category model has a CategoryName property
+                    }).ToList()
+                })
+                .ToList();
+
             return View(data);
         }
+
         public IActionResult Delete_Trip(int id)
         {
             // Find all expenses related to the trip
@@ -181,6 +198,8 @@ namespace ExpenseVoyage.Controllers
 
         public IActionResult Expense_View()
         {
+            var user_id = GetUserId();
+            //Need to fetch expenses of logged in user according to trips
             var data = _context.Expenses.Include(x=>x.trip).Include(x=>x.category).ToList();
             return View(data);
         }

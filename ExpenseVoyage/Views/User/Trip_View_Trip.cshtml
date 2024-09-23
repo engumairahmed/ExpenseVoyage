@@ -1,13 +1,13 @@
-﻿@model IEnumerable<ExpenseVoyage.Models.Trips>
+﻿@model IEnumerable<ExpenseVoyage.Models.ViewModels.TripViewModel>
 
 @{
     Layout = "~/Views/Shared/User_Layout.cshtml";
 }
 
-<div class="breadcumb-wrapper" data-bg-src="@Url.Content("~/asset/img/normal/breadcumb-bg.jpg")">
+<div class="breadcumb-wrapper" >
     <div class="container">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Trip Booking</h1>
+            <h6 class="breadcumb-title">Trip Booking</h6>
             <ul class="breadcumb-menu">
                 <li><a asp-action="Index">Home</a></li>
                 <li>Contact Us</li>
@@ -29,27 +29,43 @@
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Budget</th>
-                            <th>Remaining_Budget</th>
+                            <th>Remaining Budget</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if (Model != null && Model.Any())
                         {
-                            foreach (var trip in Model)
+                            foreach (var tripData in Model)
                             {
                                 <tr>
-                                    <td>@trip.trip_name</td>
-                                    <td>@trip.Destination</td>
-                                    <td>@trip.start_Date.ToString("d")</td>
-                                    <td>@trip.end_Date.ToString("d")</td>
-                                    <td>@trip.Budget</td>
-                                    <td>@trip.Remaining_Budget</td>
+                                    <td>@tripData.Trip.trip_name</td>
+                                    <td>@tripData.Trip.Destination</td>
+                                    <td>@tripData.Trip.start_Date.ToString("d")</td>
+                                    <td>@tripData.Trip.end_Date.ToString("d")</td>
+                                    <td>@tripData.Trip.Budget</td>
+                                    <td>@tripData.Trip.Remaining_Budget</td>
                                     <td>
-                                        <a asp-action="Edit_Trip" asp-route-id="@trip.id" class="btn btn-primary">Edit</a>
-                                        <a asp-action="Delete_Trip" asp-route-id="@trip.id" class="btn btn-danger">Delete</a>
+                                        <a asp-action="Edit_Trip" asp-route-id="@tripData.Trip.id" class="btn btn-primary">Edit</a>
+                                        <a asp-action="Delete_Trip" asp-route-id="@tripData.Trip.id" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Amount</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                </tr>
+                                foreach(var exp in tripData.Expenses)
+                                {
+                                    
+                                    <tr>
+                                        <td></td>
+                                        <td>@exp.Amount</td>
+                                        <td>@exp.CategoryName</td>
+                                        <td>@exp.ExpanseDate</td>
+                                    </tr>
+                                }
                             }
                         }
                         else
